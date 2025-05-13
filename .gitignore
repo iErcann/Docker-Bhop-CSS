@@ -1,1 +1,30 @@
 css-data
+# Ignore only specific BSP files
+maps/de_dust.bsp
+maps/de_dust2.bsp
+maps/de_inferno.bsp
+maps/de_cbble.bsp
+maps/de_chateau.bsp
+maps/de_tides.bsp
+maps/de_piranesi.bsp
+maps/de_aztec.bsp
+maps/de_nuke.bsp
+maps/de_train.bsp
+maps/de_prodigy.bsp
+maps/de_port.bsp
+
+# Ignore specific CS maps
+maps/cs_assault.bsp
+maps/cs_office.bsp
+maps/cs_italy.bsp
+maps/cs_havana.bsp
+maps/cs_compound.bsp
+maps/cs_militia.bsp
+
+# Ignore .nav files generated for test maps
+maps/test_*.nav
+
+# You can also ignore other test maps if needed
+maps/test_*.bsp
+
+*.nav

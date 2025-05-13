@@ -6,7 +6,9 @@ services:
     volumes:
       - ./css-data:/data
       - ./init.sh:/init.sh
-      - ./mods/bhoptimer.zip:/mods/bhoptimer.zip
+      - ./mods:/mods               
+      - ./maps:/data/serverfiles/cstrike/maps   
+      - ./cssserver.cfg:/data/config-lgsm/cssserver/cssserver.cfg
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
