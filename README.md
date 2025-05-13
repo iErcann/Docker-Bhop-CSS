@@ -37,7 +37,7 @@ docker exec -it --user linuxgsm css-server bash /init.sh
 This script should:
 
 * Install Metamod and Sourcemod
-* Extract the Timer Bhop plugin from `/mods`
+* Extract the Timer Bhop plugin from `/mods` (https://github.com/shavitush/bhoptimer/)
 * Place everything in the correct directory
 
 ---
