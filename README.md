@@ -1,24 +1,24 @@
- 
-
 # 🕹 Counter-Strike: Source Bhop Server Setup with Docker
 
-## 🚀 Setup
+## 🚀 Setup Instructions
 
-1. **Start the Docker container:**
+### 1️⃣ Start the Server
+
+Launch the Docker container to initialize your Counter-Strike: Source server:
 
 ```bash
 docker-compose up -d
 ```
 
-Wait until all services are up and running. This will start your CSS server in the background.
+Wait for all services to start. The server will run in the background.
 
 ---
 
-## 🎮 Make it a Bhop Server
+### 2️⃣ Configure as a Bhop Server
 
-### 🔍 Check Server Details 
+#### 🔍 Verify Server Status
 
-To get information about the running server:
+Check the server's current status and details:
 
 ```bash
 docker exec -it --user linuxgsm css-server ./cssserver details
@@ -26,23 +26,23 @@ docker exec -it --user linuxgsm css-server ./cssserver details
 
 ---
 
-### 🧰 Initialize Bhop Setup (Metamod, Sourcemod, Bhop Timer, SSJ)
+#### 🧰 Install Bhop Plugins
 
-To configure the server with Sourcemod, Metamod\:Source, and Influx Timer, run:
+Set up the server with essential plugins like Metamod, Sourcemod, and a Bhop Timer:
 
 ```bash
 docker exec -it --user linuxgsm css-server bash /init.sh
 ```
 
-This script should:
+This script will:
 
-* Install Metamod and Sourcemod
-* Extract the Timer Bhop plugin from `/mods` (https://github.com/shavitush/bhoptimer/)
-* Place everything in the correct directory
+- Install **Metamod** and **Sourcemod**
+- Deploy the **Bhop Timer plugin** from `/mods` ([shavitush/bhoptimer](https://github.com/shavitush/bhoptimer))
+- Place all files in the correct directories
 
 ---
 
-### 🔍 Check if Metamod Loaded
+#### 🔍 Verify Plugin Installation
 
 Access the game server console:
 
@@ -50,24 +50,70 @@ Access the game server console:
 docker exec -it --user linuxgsm css-server ./cssserver console
 ```
 
-Then, type:
+Run the following command to confirm Metamod and Sourcemod are loaded:
 
 ```
 meta list
 ```
 
-You should see a list of loaded plugins including Metamod and Sourcemod.
+You should see a list of active plugins.
 
 ---
 
-## 🌐 Finding the IP Address (WSL Users)
+### 3️⃣ Locate the Server IP (For WSL Users)
 
-If you are running Docker via **WSL**, find the IP address by running:
+If you're using Docker with **WSL**, find the server's IP address:
 
 ```bash
 ifconfig
 ```
 
-Look for your network interface (usually `eth0`) and note the `inet` address.
+Look for the `inet` address under your network interface (commonly `eth0`).
 
- 
+---
+
+### 4️⃣ Customize Server Settings
+
+Edit the server configuration file to personalize your setup:
+
+**File Path:** `/css-data/serverfiles/cstrike/cfg/cssserver.cfg`
+
+Example configuration:
+
+```plaintext
+hostname "Bhop Server"                # Server name
+rcon_password ""                      # Secure RCON password or disable
+sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token
+```
+
+> **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
+
+---
+
+### 5️⃣ Add Admin Privileges
+
+Grant yourself admin access by editing the following file:
+
+**File Path:** `/css-data/serverfiles/cstrike/addons/sourcemod/configs/admins.cfg`
+
+Add your Steam ID in the specified format. Example:
+
+```plaintext
+"YourSteamID"
+{
+    "auth"        "steam"
+    "identity"    "STEAM_0:1:12345678"
+    "flags"       "z"  // Full admin access
+    "immunity"    "99" // Highest immunity level
+}
+```
+
+> **Note:** Replace `STEAM_0:1:12345678` with your actual Steam ID. Use tools like [SteamID Finder](https://steamid.io/) to find your Steam ID.
+
+---
+
+### 📜 Credits
+
+- [LinuxGSM Sourcemod Guide](https://docs.linuxgsm.com/guides/sourcemod-csgo-server)
+- [Bhop Stats by enimmy](https://github.com/enimmy/bhop-get-stats)
+- [Bhop Timer by shavitush](https://github.com/shavitush/bhoptimer)
