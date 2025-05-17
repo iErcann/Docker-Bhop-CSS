@@ -4,7 +4,33 @@
 
 ## 🚀 Setup Instructions
 
-### 1️⃣ Start the Server
+### 1️⃣ Customize Server Settings
+
+Edit the server configuration file to personalize your setup:
+
+**File Path:** `cssserver.cfg`
+
+Example configuration:
+
+```plaintext
+hostname "Bhop Server"                # Server name
+rcon_password ""                      # Secure RCON password or disable
+sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token
+
+// Force 100 ticks
+sv_mincmdrate 100
+sv_maxcmdrate 101
+sv_minrate 100000
+sv_maxrate 0
+sv_minupdaterate 100
+sv_maxupdaterate 101
+
+sv_setsteamaccount "your_token_here"
+```
+
+> **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
+
+### 2️⃣ Start the Server
 
 Launch the Docker container to initialize your Counter-Strike: Source server:
 
@@ -16,7 +42,7 @@ Wait for all services to start. The server will run in the background.
 
 > Could take some time if running first time.
 
-### 2️⃣ Configure as a Bhop Server
+### 3️⃣ Configure as a Bhop Server
 
 #### 🔍 Verify Server Status
 
@@ -69,7 +95,7 @@ sm plugins list
 
 ---
 
-### 3️⃣ Locate the Server IP (For WSL Users)
+### 4️⃣ Locate the Server IP (For WSL Users)
 
 If you're using Docker with **WSL**, find the server's IP address:
 
@@ -80,22 +106,6 @@ ifconfig
 Look for the `inet` address under your network interface (commonly `eth0`).
 
 ---
-
-### 4️⃣ Customize Server Settings
-
-Edit the server configuration file to personalize your setup:
-
-**File Path:** `/css-data/serverfiles/cstrike/cfg/cssserver.cfg`
-
-Example configuration:
-
-```plaintext
-hostname "Bhop Server"                # Server name
-rcon_password ""                      # Secure RCON password or disable
-sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token
-```
-
-> **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
 
 ## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
 
@@ -134,3 +144,6 @@ Add your Steam ID in the specified format. Example:
 Known issuse:
 
 shavkit ranking broken
+bash2 broken
+
+https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/

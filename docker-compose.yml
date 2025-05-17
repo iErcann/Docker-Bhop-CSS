@@ -6,11 +6,18 @@ services:
     volumes:
       - ./css-data:/data
       - ./init.sh:/init.sh
-      - ./mods:/mods               
-      - ./maps:/data/serverfiles/cstrike/maps   
-      - ./cssserver.cfg:/data/config-lgsm/cssserver/cssserver.cfg
+      - ./mods:/mods
+      - ./maps:/data/serverfiles/cstrike/maps
+      - ./startparams.cfg:/data/config-lgsm/cssserver/cssserver.cfg
+      - ./cssserver.cfg:/data/serverfiles/cstrike/cfg/cssserver.cfg
+
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
       - "27020:27020/udp"
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"

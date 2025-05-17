@@ -6,7 +6,7 @@ echo "[INIT BHOP] Starting server setup..."
 # Install MetaMod:Source
 # ------------------------
 echo "[INIT BHOP] Installing MetaMod:Source..."
-metamodsourceversion="1.11"
+metamodsourceversion="1.12"
 metamodsourcedownloadurl="https://www.metamodsource.net/latest.php?os=linux&version=${metamodsourceversion}"
 
 wget -qO /tmp/mmsource.tar.gz "${metamodsourcedownloadurl}"
@@ -50,9 +50,10 @@ echo "[INIT BHOP] Done setting up bhop-get-stats."
 # Set Tickrate enabler   https://github.com/idk1703/TickrateEnabler (fork, because broken)
 # ------------------------
 echo "[INIT TICKRATE Enabler]"
-unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract TickrateEnabler"; exit 1; }
+unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cstrike/
 
 
+echo "[DONE] Tickrate Enabler installed."
 # ------------------------
 # Set RNG Fixer https://github.com/jason-e/rngfix
 # ------------------------
