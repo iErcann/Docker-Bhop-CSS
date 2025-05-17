@@ -127,5 +127,10 @@ Add your Steam ID in the specified format. Example:
 - [Bhop Stats](https://github.com/enimmy/bhop-get-stats)
 - [Bhop Timer](https://github.com/shavitush/bhoptimer)
 - [RNGFixer](https://github.com/jason-e/rngfix)
-- [Bash2 AntiCheat](https://github.com/enimmy/bash2) (this one has .smx)
+- [Bash2 AntiCheat](https://github.com/enimmy/bash2) (this one has .smx, but always require SteamWorks to work)
 - [Tickrate Enabler](https://github.com/idk1703/TickrateEnabler) (fork, because broken)
+- [LandFix](https://github.com/tadehack/landfix_wHudAndCookies)
+
+Known issuse:
+
+shavkit ranking broken

@@ -42,15 +42,9 @@ unzip -o /mods/bhoptimer.zip -d /data/serverfiles/cstrike
 # Extract bhop-get-stats https://github.com/enimmy/bhop-get-stats
 # ------------------------
 echo "[INIT BHOP] Extracting bhop-get-stats..."
-unzip -o /mods/ssj.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract bhop-get-stats SSJ"; exit 1; }
-
-# Move .smx files to the correct SourceMod plugins directory
-echo "[INIT BHOP] Moving .smx files to the plugins folder..."
-mkdir -p /data/serverfiles/cstrike/addons/sourcemod/plugins
-mv /data/serverfiles/cstrike/*.smx /data/serverfiles/cstrike/addons/sourcemod/plugins/ || { echo "[ERROR] Failed to move .smx files"; exit 1; }
+unzip -o /mods/ssj.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || { echo "[ERROR] Failed to extract bhop-get-stats SSJ"; exit 1; }
 
 echo "[INIT BHOP] Done setting up bhop-get-stats."
-
 
 # ------------------------
 # Set Tickrate enabler   https://github.com/idk1703/TickrateEnabler (fork, because broken)
@@ -64,6 +58,12 @@ unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cs
 # ------------------------
 echo "[INIT RNG FIXER]"
 unzip -o /mods/rngfixer.zip -d /data/serverfiles/cstrike/addons/sourcemod/ || { echo "[ERROR] Failed to extract rngfixer"; exit 1; }
+
+# ------------------------
+# Set LandFix https://github.com/tadehack/landfix_wHudAndCookies
+# ------------------------
+echo "[INIT LANDFIX]"
+unzip -o /mods/landfix_wHudAndCookies.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || { echo "[ERROR] Failed to extract landfix"; exit 1; }
 
 # ------------------------ 
 ## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
