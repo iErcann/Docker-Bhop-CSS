@@ -12,7 +12,7 @@ docker-compose up -d
 
 Wait for all services to start. The server will run in the background.
 
----
+> Could take some time if running first time.
 
 ### 2️⃣ Configure as a Bhop Server
 
@@ -34,11 +34,16 @@ Set up the server with essential plugins like Metamod, Sourcemod, and a Bhop Tim
 docker exec -it --user linuxgsm css-server bash /init.sh
 ```
 
-This script will:
+This script will install the required plugins for a Bhop server:
 
-- Install **Metamod** and **Sourcemod**
-- Deploy the **Bhop Timer plugin** from `/mods` ([shavitush/bhoptimer](https://github.com/shavitush/bhoptimer))
-- Place all files in the correct directories
+- MetaMod:Source
+- SourceMod
+- Shavit's Bhop Timer
+- bhop-get-stats
+- Tickrate Enabler
+- RNG Fixer
+- 260 Velocity Fix for Weapons (so we don't need to drop them)
+- Bash2 AntiCheat
 
 ---
 
@@ -56,7 +61,9 @@ Run the following command to confirm Metamod and Sourcemod are loaded:
 meta list
 ```
 
-You should see a list of active plugins.
+```
+sm plugins list
+```
 
 ---
 
@@ -88,7 +95,7 @@ sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token
 
 > **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
 
----
+## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
 
 ### 5️⃣ Add Admin Privileges
 
@@ -115,5 +122,8 @@ Add your Steam ID in the specified format. Example:
 ### 📜 Credits
 
 - [LinuxGSM Sourcemod Guide](https://docs.linuxgsm.com/guides/sourcemod-csgo-server)
-- [Bhop Stats by enimmy](https://github.com/enimmy/bhop-get-stats)
-- [Bhop Timer by shavitush](https://github.com/shavitush/bhoptimer)
+- [Bhop Stats](https://github.com/enimmy/bhop-get-stats)
+- [Bhop Timer](https://github.com/shavitush/bhoptimer)
+- [RNGFixer](https://github.com/jason-e/rngfix)
+- [Bash2 AntiCheat](https://github.com/enimmy/bash2) (this one has .smx)
+- [Tickrate Enabler](https://github.com/idk1703/TickrateEnabler) (fork, because broken)

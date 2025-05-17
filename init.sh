@@ -33,13 +33,13 @@ fi
 tar -xvzf /tmp/sourcemod.tar.gz -C /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract SourceMod"; exit 1; }
 
 # ------------------------
-# Extract Shavit Timer
-# ------------------------
+# Extract Shavit Timer https://github.com/shavitush/bhoptimer
+# ------------------------ 
 echo "[INIT BHOP] Extracting Shavit Timer..."
 unzip -o /mods/bhoptimer.zip -d /data/serverfiles/cstrike
 
 # ------------------------
-# Extract bhop-get-stats
+# Extract bhop-get-stats https://github.com/enimmy/bhop-get-stats
 # ------------------------
 echo "[INIT BHOP] Extracting bhop-get-stats..."
 unzip -o /mods/ssj.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract bhop-get-stats SSJ"; exit 1; }
@@ -53,12 +53,27 @@ echo "[INIT BHOP] Done setting up bhop-get-stats."
 
 
 # ------------------------
-# Set Tickrate enabler 
+# Set Tickrate enabler   https://github.com/idk1703/TickrateEnabler (fork, because broken)
 # ------------------------
 echo "[INIT TICKRATE Enabler]"
 unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract TickrateEnabler"; exit 1; }
 
+
+# ------------------------
+# Set RNG Fixer https://github.com/jason-e/rngfix
+# ------------------------
+echo "[INIT RNG FIXER]"
+unzip -o /mods/rngfixer.zip -d /data/serverfiles/cstrike/addons/sourcemod/ || { echo "[ERROR] Failed to extract rngfixer"; exit 1; }
+
+# ------------------------ 
+## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
+# Set vel to 260 for all weapons  
+# ------------------------
+echo "[FIX VEL WEAPONS] Extracting 260 Vel Weapon Scripts..."
+unzip -o /mods/260VelWeaponScripts.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract 260VelWeaponScripts"; exit 1; }
+
 echo "[INIT BHOP] Done setting up the bhop configuration."
 echo "[INIT BHOP] Restarting the server"
+
 
 ./cssserver restart
