@@ -1,80 +1,92 @@
 #!/bin/bash
 
-echo "[INIT BHOP] Starting server setup..."
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+RESET="\033[0m"
+
+info() {
+    echo -e "${GREEN}[BHOP INIT]${RESET} $1"
+}
+
+error_exit() {
+    echo -e "${RED}[ERROR]${RESET} $1"
+    exit 1
+}
+
+info "🚀 Starting server setup..."
 
 # ------------------------
 # Install MetaMod:Source
 # ------------------------
-echo "[INIT BHOP] Installing MetaMod:Source..."
+info "📦 Installing MetaMod:Source (v1.12)..."
 metamodsourceversion="1.12"
 metamodsourcedownloadurl="https://www.metamodsource.net/latest.php?os=linux&version=${metamodsourceversion}"
 
-wget -qO /tmp/mmsource.tar.gz "${metamodsourcedownloadurl}"
-if [ $? -ne 0 ]; then
-    echo "[ERROR] Failed to download MetaMod:Source"
-    exit 1
-fi
-
-tar -xvzf /tmp/mmsource.tar.gz -C /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract MetaMod"; exit 1; }
+wget -qO /tmp/mmsource.tar.gz "${metamodsourcedownloadurl}" || error_exit "Failed to download MetaMod:Source"
+tar -xvzf /tmp/mmsource.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract MetaMod"
 
 # ------------------------
 # Install SourceMod
 # ------------------------
-echo "[INIT BHOP] Installing SourceMod..."
+info "📦 Installing SourceMod (v1.12)..."
 sourcemodversion="1.12"
 sourcemoddownloadurl="https://www.sourcemod.net/latest.php?os=linux&version=${sourcemodversion}"
 
-wget -qO /tmp/sourcemod.tar.gz "${sourcemoddownloadurl}"
-if [ $? -ne 0 ]; then
-    echo "[ERROR] Failed to download SourceMod"
-    exit 1
-fi
-
-tar -xvzf /tmp/sourcemod.tar.gz -C /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract SourceMod"; exit 1; }
+wget -qO /tmp/sourcemod.tar.gz "${sourcemoddownloadurl}" || error_exit "Failed to download SourceMod"
+tar -xvzf /tmp/sourcemod.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract SourceMod"
 
 # ------------------------
-# Extract Shavit Timer https://github.com/shavitush/bhoptimer
-# ------------------------ 
-echo "[INIT BHOP] Extracting Shavit Timer..."
-unzip -o /mods/bhoptimer.zip -d /data/serverfiles/cstrike
+# Install Shavit Timer
+# ------------------------
+info "⏱️ Installing Shavit Timer..."
+unzip -o /mods/bhoptimer.zip -d /data/serverfiles/cstrike || error_exit "Failed to extract Shavit Timer"
 
 # ------------------------
-# Extract bhop-get-stats https://github.com/enimmy/bhop-get-stats
+# Install bhop-get-stats
 # ------------------------
-echo "[INIT BHOP] Extracting bhop-get-stats..."
-unzip -o /mods/ssj.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || { echo "[ERROR] Failed to extract bhop-get-stats SSJ"; exit 1; }
-
-echo "[INIT BHOP] Done setting up bhop-get-stats."
+info "📊 Installing bhop-get-stats (SSJ plugin)..."
+unzip -o /mods/ssj.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract SSJ plugin"
 
 # ------------------------
-# Set Tickrate enabler   https://github.com/idk1703/TickrateEnabler (fork, because broken)
+# Install Tickrate Enabler
 # ------------------------
-echo "[INIT TICKRATE Enabler]"
-unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cstrike/
-
-
-echo "[DONE] Tickrate Enabler installed."
-# ------------------------
-# Set RNG Fixer https://github.com/jason-e/rngfix
-# ------------------------
-echo "[INIT RNG FIXER]"
-unzip -o /mods/rngfixer.zip -d /data/serverfiles/cstrike/addons/sourcemod/ || { echo "[ERROR] Failed to extract rngfixer"; exit 1; }
+info "⚙️ Installing Tickrate Enabler..."
+unzip -o /mods/TickrateEnabler-linux-tick100-15ada04.zip -d /data/serverfiles/cstrike/ || error_exit "Failed to extract Tickrate Enabler"
 
 # ------------------------
-# Set LandFix https://github.com/tadehack/landfix_wHudAndCookies
+# Install RNG Fixer
 # ------------------------
-echo "[INIT LANDFIX]"
-unzip -o /mods/landfix_wHudAndCookies.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || { echo "[ERROR] Failed to extract landfix"; exit 1; }
+info "🎲 Installing RNG Fixer..."
+unzip -o /mods/rngfixer.zip -d /data/serverfiles/cstrike/addons/sourcemod/ || error_exit "Failed to extract RNG Fixer"
 
-# ------------------------ 
-## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
-# Set vel to 260 for all weapons  
 # ------------------------
-echo "[FIX VEL WEAPONS] Extracting 260 Vel Weapon Scripts..."
-unzip -o /mods/260VelWeaponScripts.zip -d /data/serverfiles/cstrike || { echo "[ERROR] Failed to extract 260VelWeaponScripts"; exit 1; }
+# Install LandFix
+# ------------------------
+info "🛬 Installing LandFix plugin..."
+unzip -o /mods/landfix_wHudAndCookies.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract LandFix"
 
-echo "[INIT BHOP] Done setting up the bhop configuration."
-echo "[INIT BHOP] Restarting the server"
+# ------------------------
+# Apply 260 Velocity Weapon Fix
+# ------------------------
+info "🏃 Applying 260 Velocity Weapon Scripts..."
+unzip -o /mods/260VelWeaponScripts.zip -d /data/serverfiles/cstrike || error_exit "Failed to extract 260VelWeaponScripts"
 
+# ------------------------
+# Install SteamWorks (needed for bash2)
+# ------------------------
+info "🎮 Installing SteamWorks..."
+unzip -o /mods/SteamWorks.zip -d /data/serverfiles/cstrike/ || error_exit "Failed to extract SteamWorks"
+
+# ------------------------
+# Install Bash2
+# ------------------------
+info "🎮 Installing Bash2..."
+unzip -o /mods/bash2.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract Bash2"
+
+# ------------------------
+# Done
+# ------------------------
+info "✅ All plugins and fixes installed successfully."
+info "🔁 Restarting the server..."
 
 ./cssserver restart
