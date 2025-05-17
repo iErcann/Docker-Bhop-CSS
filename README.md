@@ -1,5 +1,7 @@
 # 🕹 Counter-Strike: Source Bhop Server Setup with Docker
 
+![Demo](demo.webp)
+
 ## 🚀 Setup Instructions
 
 ### 1️⃣ Start the Server
