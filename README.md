@@ -131,6 +131,14 @@ Add your Steam ID in the specified format. Example:
 
 ---
 
+### Creating Bhop Timer Zones
+
+On all maps, you must create start and end zones for the bhop timer to work.
+To do this, type the following commands in the server console:
+
+`!zones` - This will enable zone editing mode.
+`!noclip` - This will allow you to fly and move through walls.
+
 ### 📜 Credits
 
 - [LinuxGSM Sourcemod Guide](https://docs.linuxgsm.com/guides/sourcemod-csgo-server)
@@ -144,6 +152,5 @@ Add your Steam ID in the specified format. Example:
 Known issuse:
 
 shavkit ranking broken
-bash2 broken
 
 https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/
