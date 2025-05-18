@@ -1,9 +1,10 @@
 # 🕹 Counter-Strike: Source Bhop Server Setup with Docker
+
 - Auto-installed Bhop server plugins (Metamod, Sourcemod, Shavit Timer, etc.)
 - Docker containerization for easy setup and portability
 - 100-tickrate enforced for smooth bunnyhopping
 - Works locally or for remote server deployment
-- Includes a few starter maps — add your own, use !zones to configure 
+- Includes a few starter maps — add your own, use !zones to configure
 
 ![Demo](demo.webp)
 
@@ -29,7 +30,7 @@ sv_minrate 100000
 sv_maxrate 0
 sv_minupdaterate 100
 sv_maxupdaterate 101
- 
+
 ```
 
 > **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
@@ -78,6 +79,7 @@ This script will install the required plugins for a Bhop server:
 - Bash2 AntiCheat
 - Show Clips
 - Show Triggers
+
 ---
 
 #### 🔍 Verify Plugin Installation
@@ -105,50 +107,60 @@ sm plugins list
 If you're using Docker with **WSL**, the ip will be something like `172.17....` (not 127.0.0.1)
 
 Look for the `inet` address under your network interface (commonly `eth0`).
+
 ```bash
 ifconfig
 ```
- ![image](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
 
+![image](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
 
 ---
- 
 
 ### 5️⃣ Add Admin Privileges
 
- 
 #### 📝 Edit the Admin File
-  
+
 Use this pre-made command to edit the file directly using `vi`:
+
 ```bash
 docker exec -it --user linuxgsm css-server \
-vi /app/serverfiles/cstrike/addons/sourcemod/configs/admin_simple.ini
+vi /app/serverfiles/cstrike/addons/sourcemod/configs/admins_simple.ini
 ```
 
 #### ➕ Add Your Admin Entry
+
 Add your Steam ID in this format (replace with your actual Steam ID):
+
 ```
 "STEAM_0:0:12345678" "z"
 ```
 
 #### Key Components:
+
 - `STEAM_0:0:12345678`: Your Steam ID ([find yours here](https://steamid.io))
 - `z`: Full admin privileges flag
 
-
 #### 🔄 Apply Changes
+
 After saving the file:
+
 1. Restart your server, **OR**
 2. Run this in-game command:
-   ```
-   sm_reloadadmins
-   ```
- 
- >  Use `"a"` instead of `"z"` for basic admin rights
- >  To give only !zones to someone, give him only the `"m"`. Disable RCON.
- 
+
+```bash
+docker exec -it --user linuxgsm css-server ./cssserver console
+```
+
+```
+sm_reloadadmins
+```
+
+> Use `"a"` instead of `"z"` for basic admin rights
+> To give only !zones to someone, give him only the `"m"`. Disable RCON.
+
 ---
-###  6️⃣ Creating Bhop Timer Zones
+
+### 6️⃣ Creating Bhop Timer Zones
 
 On all maps, you must create start and end zones for the bhop timer to work.
 To do this, type the commands in the chat:
@@ -189,7 +201,7 @@ Admin commands: (ROOT flag)
 - [Show Clips](https://github.com/GAMMACASE/ShowPlayerClips)
 - [Show Triggers](https://forums.alliedmods.net/showthread.php?t=290356)
 - [Weapon PreSpeeds velfix](https://forums.alliedmods.net/showthread.php?t=166468)
-  
+
 Known issuse:
 shavkit ranking broken
 

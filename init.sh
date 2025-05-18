@@ -39,7 +39,7 @@ tar -xvzf /tmp/sourcemod.tar.gz -C /data/serverfiles/cstrike || error_exit "Fail
 # Install Shavit Timer
 # ------------------------
 info "⏱️ Installing Shavit Timer..."
-unzip -o /mods/bhoptimer.zip -d /data/serverfiles/cstrike || error_exit "Failed to extract Shavit Timer"
+unzip -o /mods/bhoptimer-master-sm1.12-321cdb2.zip -d /data/serverfiles/cstrike || error_exit "Failed to extract Shavit Timer"
 
 # ------------------------
 # Install bhop-get-stats
@@ -95,8 +95,11 @@ unzip -o /mods/showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/pl
 info "Installing show player clips plugin..."
 unzip -o /mods/showplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemod/|| error_exit "Failed to extract show player clips plugin"
 
-
-
+# ------------------------
+# NOTE: No need to apply SQL (sql/*.sql)
+# we already have the premade database (sql/shavit.sq3) that I provide
+# ------------------------
+ 
 # ------------------------
 # Done
 # ------------------------
