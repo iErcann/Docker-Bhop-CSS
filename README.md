@@ -1,4 +1,9 @@
 # 🕹 Counter-Strike: Source Bhop Server Setup with Docker
+- 🛠 Auto-installed Bhop server plugins (Metamod, Sourcemod, Shavit Timer, etc.)
+- 📦 Docker containerization for easy setup and portability
+- 🔁 100-tickrate enforced for smooth bunnyhopping
+- ✅ Works locally or for remote server deployment
+- 🗺 Includes a few starter maps — add your own, use !zones to configure 
 
 ![Demo](demo.webp)
 
@@ -72,7 +77,8 @@ This script will install the required plugins for a Bhop server:
 - RNG Fixer
 - 260 Velocity Fix for Weapons (so we don't need to drop them)
 - Bash2 AntiCheat
-
+- Show Clips
+- Show Triggers
 ---
 
 #### 🔍 Verify Plugin Installation
