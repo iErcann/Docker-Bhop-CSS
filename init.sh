@@ -93,7 +93,7 @@ unzip -o /mods/showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/pl
 # Install show player clips plugin !showclips
 # ------------------------
 info "Installing show player clips plugin..."
-unzip -o /mods/showclipsshowplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemod/|| error_exit "Failed to extract show player clips plugin"
+unzip -o /mods/showplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemod/|| error_exit "Failed to extract show player clips plugin"
 
 
 
