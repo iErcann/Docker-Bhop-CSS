@@ -1,9 +1,9 @@
 # 🕹 Counter-Strike: Source Bhop Server Setup with Docker
-- 🛠 Auto-installed Bhop server plugins (Metamod, Sourcemod, Shavit Timer, etc.)
-- 📦 Docker containerization for easy setup and portability
-- 🔁 100-tickrate enforced for smooth bunnyhopping
-- ✅ Works locally or for remote server deployment
-- 🗺 Includes a few starter maps — add your own, use !zones to configure 
+- Auto-installed Bhop server plugins (Metamod, Sourcemod, Shavit Timer, etc.)
+- Docker containerization for easy setup and portability
+- 100-tickrate enforced for smooth bunnyhopping
+- Works locally or for remote server deployment
+- Includes a few starter maps — add your own, use !zones to configure 
 
 ![Demo](demo.webp)
 
@@ -103,47 +103,80 @@ sm plugins list
 
 ### 4️⃣ Locate the Server IP (For WSL Users)
 
-If you're using Docker with **WSL**, find the server's IP address:
+If you're using Docker with **WSL**, the ip will be something like `172.17....` (not 127.0.0.1)
 
+Look for the `inet` address under your network interface (commonly `eth0`).
 ```bash
 ifconfig
 ```
+ ![image](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
 
-Look for the `inet` address under your network interface (commonly `eth0`).
 
 ---
-
-## For the issue of weapon affecting pre-speeds: https://forums.alliedmods.net/showthread.php?t=166468
+ 
 
 ### 5️⃣ Add Admin Privileges
 
-Grant yourself admin access by editing the following file:
-
-**File Path:** `/css-data/serverfiles/cstrike/addons/sourcemod/configs/admins.cfg`
-
-Add your Steam ID in the specified format. Example:
-
-```plaintext
-"YourSteamID"
-{
-    "auth"        "steam"
-    "identity"    "STEAM_0:1:12345678"
-    "flags"       "z"  // Full admin access
-    "immunity"    "99" // Highest immunity level
-}
+ 
+#### 📝 Edit the Admin File
+  
+Use this pre-made command to edit the file directly using `vi`:
+```bash
+docker exec -it --user linuxgsm css-server \
+vi /app/serverfiles/cstrike/addons/sourcemod/configs/admin_simple.ini
 ```
 
-> **Note:** Replace `STEAM_0:1:12345678` with your actual Steam ID. Use tools like [SteamID Finder](https://steamid.io/) to find your Steam ID.
+#### ➕ Add Your Admin Entry
+Add your Steam ID in this format (replace with your actual Steam ID):
+```
+"STEAM_0:0:12345678" "z"
+```
 
+#### Key Components:
+- `STEAM_0:0:12345678`: Your Steam ID ([find yours here](https://steamid.io))
+- `z`: Full admin privileges flag
+
+
+#### 🔄 Apply Changes
+After saving the file:
+1. Restart your server, **OR**
+2. Run this in-game command:
+   ```
+   sm_reloadadmins
+   ```
+ 
+ >  Use `"a"` instead of `"z"` for basic admin rights
+ >  To give only !zones to someone, give him only the `"m"`. Disable RCON.
+ 
 ---
-
-### Creating Bhop Timer Zones
+###  6️⃣ Creating Bhop Timer Zones
 
 On all maps, you must create start and end zones for the bhop timer to work.
-To do this, type the following commands in the server console:
+To do this, type the commands in the chat:
 
-`!zones` - This will enable zone editing mode.
-`!noclip` - This will allow you to fly and move through walls.
+`!zones` - This will enable zone editing mode. (https://github.com/shavitush/bhoptimer/#shavit-zones-required)
+`!noclip` - This will allow you to fly and move through walls to go to the end.
+
+```
+Player commands:
+!set, !setstart, !ss, !sp, !startpoint - Set your current position as the teleport location on restart.
+!deletestart, !deletesetstart, !delss, !delsp - Delete your spawn point.
+!drawallzones, !drawzones - Draws all zones (if the server has the cvar for this enabled).
+
+Admin commands: (RCON flag)
+!zones, !mapzones, !addzone - Opens the mapzones menu.
+!deletezone, !delzone - Delete a mapzone.
+!deleteallzones - Delete all mapzones.
+!modifier - Changes the axis modifier for the zone editor. Usage: !modifier <number>
+!addspawn - Adds a custom spawn location.
+!delspawn - Deletes a custom spawn location.
+!zoneedit, !editzone, !modifyzone - Modify an existing zone.
+!setstart, !spawnpoint, !ss, !sp - Set your restart position & angles in a start zone.
+!tptozone - Teleport to a zone.
+
+Admin commands: (ROOT flag)
+!reloadzonesettings - Reloads the zone settings.
+```
 
 ### 📜 Credits
 
@@ -156,7 +189,8 @@ To do this, type the following commands in the server console:
 - [LandFix](https://github.com/tadehack/landfix_wHudAndCookies)
 - [Show Clips](https://github.com/GAMMACASE/ShowPlayerClips)
 - [Show Triggers](https://forums.alliedmods.net/showthread.php?t=290356)
-
+- [Weapon PreSpeeds velfix](https://forums.alliedmods.net/showthread.php?t=166468)
+  
 Known issuse:
 shavkit ranking broken
 
