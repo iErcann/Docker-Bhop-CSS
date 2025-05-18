@@ -2,6 +2,7 @@
 
 ## Option 1: Use Pre-configured Database
 > No need to do this if you're running it with docker compose up, already binded !
+> 
 Simply copy the `shavit.sq3` file to your server's data directory:
 
 ```bash
