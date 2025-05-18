@@ -20,7 +20,7 @@ Example configuration:
 ```plaintext
 hostname "Bhop Server"                # Server name
 rcon_password ""                      # Secure RCON password or disable
-sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token
+sv_setsteamaccount "your_token_here"  # Steam Game Server Login Token, only needed if you want to be in the server browser
 
 // Force 100 ticks
 sv_mincmdrate 100
@@ -29,8 +29,7 @@ sv_minrate 100000
 sv_maxrate 0
 sv_minupdaterate 100
 sv_maxupdaterate 101
-
-sv_setsteamaccount "your_token_here"
+ 
 ```
 
 > **Tip:** Generate a Steam Game Server Login Token (GSLT) at [Steam Game Server Account Management](https://steamcommunity.com/dev/managegameservers).
