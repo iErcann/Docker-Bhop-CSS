@@ -84,6 +84,20 @@ info "🎮 Installing Bash2..."
 unzip -o /mods/bash2.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract Bash2"
 
 # ------------------------
+# Install show triggers plugin !showtriggers
+# ------------------------
+info "Installing show triggers plugin..."
+unzip -o /mods/showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract show triggers plugin"
+
+# ------------------------
+# Install show player clips plugin !showclips
+# ------------------------
+info "Installing show player clips plugin..."
+unzip -o /mods/showclipsshowplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemod/|| error_exit "Failed to extract show player clips plugin"
+
+
+
+# ------------------------
 # Done
 # ------------------------
 info "✅ All plugins and fixes installed successfully."

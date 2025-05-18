@@ -148,9 +148,10 @@ To do this, type the following commands in the server console:
 - [Bash2 AntiCheat](https://github.com/enimmy/bash2) (this one has .smx, but always require SteamWorks to work)
 - [Tickrate Enabler](https://github.com/idk1703/TickrateEnabler) (fork, because broken)
 - [LandFix](https://github.com/tadehack/landfix_wHudAndCookies)
+- [Show Clips](https://github.com/GAMMACASE/ShowPlayerClips)
+- [Show Triggers](https://forums.alliedmods.net/showthread.php?t=290356)
 
 Known issuse:
-
 shavkit ranking broken
 
-https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/
+![image](https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/
