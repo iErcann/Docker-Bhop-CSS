@@ -157,7 +157,8 @@ sm_reloadadmins
 ```
 
 > Use `"a"` instead of `"z"` for basic admin rights
-> To give only !zones to someone, give him only the `"m"`. Disable RCON.
+> To give only !zones to someone, give him only the `"m"`.
+> Disable RCON.
 
 ---
 
