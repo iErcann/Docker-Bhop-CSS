@@ -5,6 +5,7 @@
 - 100-tickrate enforced for smooth bunnyhopping
 - Works locally or for remote server deployment
 - Includes a few starter maps — add your own, use !zones to configure
+- Pre-made zones/tiers for 10000 maps
 
 ![Demo](demo.webp)
 
