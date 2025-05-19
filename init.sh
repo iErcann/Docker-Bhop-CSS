@@ -96,6 +96,4 @@ unzip -o /mods/showplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemo
 # Done
 # ------------------------
 info "✅ All plugins and fixes installed successfully."
-info "🔁 Restarting the server..."
-
-./cssserver restart
+ 
