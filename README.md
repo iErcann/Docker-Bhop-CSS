@@ -103,17 +103,34 @@ sm plugins list
 
 ---
 
-### 4️⃣ Locate the Server IP (For WSL Users)
+### 4️⃣ Find Your Server IP Address
 
-If you're using Docker with **WSL**, the ip will be something like `172.17....` (not 127.0.0.1)
+To connect to your server, you'll need its IP address. This is especially important if you're running Docker locally, as the server IP will typically be something like `172.17.x.x` (not `127.0.0.1`).
 
-Look for the `inet` address under your network interface (commonly `eth0`).
+#### 🔍 How to Find the IP
 
-```bash
-ifconfig
-```
+1. **Check your network interfaces**  
+    Run the following command to list your network interfaces and their IP addresses:
 
-![image](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
+    ```bash
+    ifconfig
+    ```
+
+    Look for the `inet` address under the `docker0` interface (for Docker containers) or your main network interface (commonly `eth0`).
+
+2. **Examples:**
+
+    - **On Windows (WSL):**  
+      ![WSL Example](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
+
+    - **On Linux:**  
+      ```
+      docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                 inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+      ```
+
+> **Tip:** Use the `inet` address (e.g., `172.17.0.1`) to connect to your server from your local machine or LAN.  
+> For remote access, ensure your firewall and port forwarding settings allow external connections.
 
 ---
 

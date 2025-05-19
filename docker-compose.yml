@@ -12,9 +12,9 @@ services:
       - ./cssserver.cfg:/data/serverfiles/cstrike/cfg/cssserver.cfg # Server config (contains server name, rcon password, etc.)
       - ./sql/shavit.sq3:/data/serverfiles/cstrike/addons/sourcemod/data/sqlite/shavit.sq3 # Premade database with all zones & tiers
     ports:
-      - "27015:27015/tcp"
-      - "27015:27015/udp"
-      - "27020:27020/udp"
+      - "27015:27015/udp" # CONNECTION PORT
+      # - "27015:27015/tcp" RCON
+      # - "27020:27020/udp" SOURCETV
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -23,17 +23,3 @@ services:
         max-file: "2"
     environment:
       - CONTAINER_NAME=css-server
-
-  # monitor:
-  #   build: ./monitor
-  #   container_name: css-monitor
-  #   restart: unless-stopped
-  #   depends_on:
-  #     - linuxgsm-css
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #   environment:
-  #     - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
-  #     - CONTAINER_NAME=css-server
-  #     - CHECK_INTERVAL=10000
-  #     - DOCKER_SOCKET=/var/run/docker.sock
