@@ -18,22 +18,14 @@ info "🚀 Starting server setup..."
 # ------------------------
 # Install MetaMod:Source
 # ------------------------
-info "📦 Installing MetaMod:Source (v1.12)..."
-metamodsourceversion="1.12"
-metamodsourcedownloadurl="https://www.metamodsource.net/latest.php?os=linux&version=${metamodsourceversion}"
-
-wget -qO /tmp/mmsource.tar.gz "${metamodsourcedownloadurl}" || error_exit "Failed to download MetaMod:Source"
-tar -xvzf /tmp/mmsource.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract MetaMod"
+info "📦 Installing MetaMod:Source..."
+tar -xvzf /mods/mmsource-1.12.0-git1219-linux.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract MetaMod"
 
 # ------------------------
 # Install SourceMod
 # ------------------------
-info "📦 Installing SourceMod (v1.12)..."
-sourcemodversion="1.12"
-sourcemoddownloadurl="https://www.sourcemod.net/latest.php?os=linux&version=${sourcemodversion}"
-
-wget -qO /tmp/sourcemod.tar.gz "${sourcemoddownloadurl}" || error_exit "Failed to download SourceMod"
-tar -xvzf /tmp/sourcemod.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract SourceMod"
+info "📦 Installing SourceMod..."
+tar -xvzf /mods/sourcemod-1.12.0-git7201-linux.tar.gz -C /data/serverfiles/cstrike || error_exit "Failed to extract SourceMod"
 
 # ------------------------
 # Install Shavit Timer

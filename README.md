@@ -11,6 +11,19 @@
 
 ## 🚀 Setup Instructions
 
+### Prerequisites
+
+- Docker (https://docs.docker.com/get-started/get-docker/)
+- Git (optional)
+
+Clone the repository:
+
+```bash
+git clone https://github.com/iErcann/Docker-Bhop-CSS
+```
+
+or download zip and extract it to a folder
+
 ### 1️⃣ Customize Server Settings
 
 Edit the server configuration file to personalize your setup:
@@ -41,12 +54,14 @@ sv_maxupdaterate 101
 Launch the Docker container to initialize your Counter-Strike: Source server:
 
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
-Wait for all services to start. The server will run in the background.
+Wait for all services to start. The server will run in the foreground.
 
 > Could take some time if running first time.
+
+> To run it in the background, use `docker-compose up -d`
 
 ### 3️⃣ Configure as a Bhop Server
 
@@ -80,6 +95,7 @@ This script will install the required plugins for a Bhop server:
 - Bash2 AntiCheat
 - Show Clips
 - Show Triggers
+- LandFix with Hud and Cookies
 
 ---
 
@@ -110,24 +126,24 @@ To connect to your server, you'll need its IP address. This is especially import
 #### 🔍 How to Find the IP
 
 1. **Check your network interfaces**  
-    Run the following command to list your network interfaces and their IP addresses:
+   Run the following command to list your network interfaces and their IP addresses:
 
-    ```bash
-    ifconfig
-    ```
+   ```bash
+   ifconfig
+   ```
 
-    Look for the `inet` address under the `docker0` interface (for Docker containers) or your main network interface (commonly `eth0`).
+   Look for the `inet` address under the `docker0` interface (for Docker containers) or your main network interface (commonly `eth0`).
 
 2. **Examples:**
 
-    - **On Windows (WSL):**  
-      ![WSL Example](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
+   - **On Windows (WSL):**  
+     ![WSL Example](https://github.com/user-attachments/assets/c941e00a-4e2d-48f1-ba9d-7cc27662730a)
 
-    - **On Linux:**  
-      ```
-      docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
-                 inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-      ```
+   - **On Linux:**
+     ```
+     docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+     ```
 
 > **Tip:** Use the `inet` address (e.g., `172.17.0.1`) to connect to your server from your local machine or LAN.  
 > For remote access, ensure your firewall and port forwarding settings allow external connections.
@@ -221,7 +237,7 @@ Admin commands: (ROOT flag)
 - [Show Triggers](https://forums.alliedmods.net/showthread.php?t=290356)
 - [Weapon PreSpeeds velfix](https://forums.alliedmods.net/showthread.php?t=166468)
 
-Known issuse:
-shavkit ranking broken
+---
 
-![image](https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/
+TODO LIST
+![image](https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/)
