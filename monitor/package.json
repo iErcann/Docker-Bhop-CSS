@@ -1,0 +1,20 @@
+{
+    "name": "css-bhop-monitor",
+    "version": "1.0.0",
+    "description": "Health monitoring for CSS Bhop servers (Sends to Discord)",
+    "main": "dist/monitor.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/monitor.js",
+        "dev": "ts-node src/monitor.ts"
+    },
+    "dependencies": {
+        "dockerode": "^4.0.6",
+        "dotenv": "^16.0.3"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    }
+}
