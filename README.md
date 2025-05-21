@@ -239,5 +239,20 @@ Admin commands: (ROOT flag)
 
 ---
 
-TODO LIST
 ![image](https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/)
+
+## Discord Monitoring
+
+## 📁 `/monitor` – Game Server Monitor
+
+![Monitor](monitor/demo.png)
+
+### 🔧 Features
+
+- Tracks **player activity**: who joined or left
+- Alerts on **map changes**
+- Supports multiple game servers using [GameDig](https://github.com/gamedig/node-gamedig)
+- Built with **TypeScript & Bun**
+- **Dockerized**
+
+For more details, see [`/monitor/README.md`](monitor/README.md).
