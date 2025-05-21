@@ -96,6 +96,7 @@ This script will install the required plugins for a Bhop server:
 - Show Clips
 - Show Triggers
 - LandFix with Hud and Cookies
+- Gap
 
 ---
 
@@ -236,6 +237,9 @@ Admin commands: (ROOT flag)
 - [Show Clips](https://github.com/GAMMACASE/ShowPlayerClips)
 - [Show Triggers](https://forums.alliedmods.net/showthread.php?t=290356)
 - [Weapon PreSpeeds velfix](https://forums.alliedmods.net/showthread.php?t=166468)
+- [Gap](https://github.com/Nairdaa/gap)
+- [Line](https://github.com/enimmy/shavit-line-advanced)
+  - Requires : https://github.com/rtldg/sm_closestpos
 
 ---
 

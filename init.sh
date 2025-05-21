@@ -79,7 +79,8 @@ unzip -o /mods/bash2.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ 
 # Install show triggers plugin !showtriggers
 # ------------------------
 info "Installing show triggers plugin..."
-unzip -o /mods/showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract show triggers plugin"
+# unzip -o /mods/showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract show triggers plugin"
+unzip -o /mods/extra-improved-showtriggers.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract extra-improved-showtriggers"
 
 # ------------------------
 # Install show player clips plugin !showclips
@@ -92,6 +93,14 @@ unzip -o /mods/showplayersclips.zip -d /data/serverfiles/cstrike/addons/sourcemo
 # we already have the premade database (sql/shavit.sq3) that I provide
 # ------------------------
  
+# ------------------------
+# Install !gap
+# ------------------------
+info "Installing !gap plugin..."
+unzip -o /mods/gap.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract gap"
+
+
+
 # ------------------------
 # Done
 # ------------------------
