@@ -13,7 +13,7 @@
 
 ### Prerequisites
 
-- Docker (https://docs.docker.com/get-started/get-docker/)
+- Docker (https://docs.docker.com/get-started/get-docker/) + WSL (Take Ubuntu)
 - Git (optional)
 
 Clone the repository:
