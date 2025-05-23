@@ -54,7 +54,7 @@ sv_maxupdaterate 101
 Launch the Docker container to initialize your Counter-Strike: Source server:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Wait for all services to start. The server will run in the foreground.
