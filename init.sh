@@ -57,6 +57,12 @@ unzip -o /mods/rngfixer.zip -d /data/serverfiles/cstrike/addons/sourcemod/ || er
 info "🛬 Installing LandFix plugin..."
 unzip -o /mods/landfix_wHudAndCookies.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract LandFix"
 
+# # ------------------------
+# # Install Kid AutoStrafe
+# # ------------------------
+# info "🏃 Installing Kid AutoStrafe plugin...
+# unzip -o /mods/kid-autostrafe.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract Kid AutoStrafe"
+
 # ------------------------
 # Apply 260 Velocity Weapon Fix
 # ------------------------
