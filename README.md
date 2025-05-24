@@ -61,7 +61,7 @@ Wait for all services to start. The server will run in the foreground.
 
 > Could take some time if running first time.
 
-> To run it in the background, use `docker-compose up -d`
+> To run it in the background, use `docker compose up -d`
 
 ### 3️⃣ Configure as a Bhop Server
 
@@ -97,6 +97,8 @@ This script will install the required plugins for a Bhop server:
 - Show Triggers
 - LandFix with Hud and Cookies
 - Gap
+- Event Queue Fixer
+- PushFix DE (booster fix, broken in new CSS update february 2025)
 
 ---
 
@@ -240,10 +242,12 @@ Admin commands: (ROOT flag)
 - [Gap](https://github.com/Nairdaa/gap)
 - [Line](https://github.com/enimmy/shavit-line-advanced)
   - Requires : https://github.com/rtldg/sm_closestpos
-
+- [Event Queue Fixer](https://github.com/hermansimensen/eventqueue-fix)
+- [PushFixDE](https://github.com/rumourA/PushFixDE) 
 ---
 
 ![image](https://images.steamusercontent.com/ugc/10697498339616602738/FBD738B348DC038F73EE29EA2DB1639357D0983A/)
+
 
 ## Discord Monitoring
 

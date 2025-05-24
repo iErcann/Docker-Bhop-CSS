@@ -100,6 +100,24 @@ info "Installing !gap plugin..."
 unzip -o /mods/gap.zip -d /data/serverfiles/cstrike/addons/sourcemod/plugins/ || error_exit "Failed to extract gap"
 
 
+# ------------------------
+# Install Event Queue Fixer (2025 recompilation)
+# ------------------------
+info "Installing Event Queue Fixer..."
+unzip -o /mods/event-queue-fixer-recompiled-2025.zip -d /data/serverfiles/cstrike/|| error_exit "Failed to extract Event Queue Fixer"
+
+# ------------------------
+# Install sm_closestpos
+# ------------------------
+info "Installing sm_closestpos plugin..."
+unzip -o /mods/sm_closestpos-sm1.10-ubuntu-22.04-f848dfc.zip -d /data/serverfiles/cstrike/ || error_exit "Failed to extract sm_closestpos plugin"
+
+# ------------------------
+# Install PushFix Definition Edition [1.1.0] (see https://github.com/shavitush/bhoptimer/issues/1227)
+# ------------------------
+info "Installing PushFix Definition Edition..."
+unzip -o /mods/pushfix_de_1.1.0.zip -d /data/serverfiles/cstrike || error_exit "Failed to extract PushFix Definition Edition"
+
 
 # ------------------------
 # Done
